@@ -12,5 +12,5 @@ export const UserModel = {
       [username, email, hashedPassword]
     );
     return result.insertId;
-  },
+  }
 };

@@ -13,4 +13,29 @@ export const TodoModel = {
     );
     return result.insertId;
   },
+
+  update: async (id: number, task: string, isCompleted: boolean, userId: number) => {
+    const [result]: any = await pool.query(
+      'UPDATE todos SET task = ?, is_completed = ? WHERE id = ? AND user_id = ?',
+      [task, isCompleted, id, userId]
+    );
+    return result.affectedRows;
+  },
+
+  delete: async (id: number, userId: number) => {
+    const [result]: any = await pool.query(
+      'DELETE FROM todos WHERE id = ? AND user_id = ?',
+      [id, userId]
+    );
+    return result.affectedRows;
+  },
+
+  // Langkah 10a: getById sudah terpasang
+  getById: async (id: number, userId: number) => {
+    const [rows]: any = await pool.query(
+      'SELECT * FROM todos WHERE id = ? AND user_id = ?',
+      [id, userId]
+    );
+    return rows[0];
+  }
 };

@@ -1,8 +1,8 @@
 import { Router } from 'express';
-import { register, login } from '../controllers/authController';
-import { getTodos, createTodo } from '../controllers/todoController';
-import { validateRegister, validateLogin, validateTodo } from '../middlewares/validator';
-import { verifyToken } from '../middlewares/authMiddleware';
+import { register, login } from '../controllers/authController.js';
+import { getTodos, createTodo } from '../controllers/todoController.js';
+import { validateRegister, validateLogin, validateTodo } from '../middlewares/validator.js';
+import { verifyToken } from '../middlewares/authMiddleware.js';
 
 const router = Router();
 
